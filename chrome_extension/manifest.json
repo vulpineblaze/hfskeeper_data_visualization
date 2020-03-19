@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "hfskeeper data visualizer",
+  "version": "0.1",
+  "permissions": [
+    "storage",
+    "tabs",
+    "notifications",
+    "http://*/",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.hfskeeper.com/*", "http://www.hfskeeper.com/*"],
+      "js": ["jquery-3.4.1.min.js", 
+              "jquery.dataTables.min.js", 
+              "moment.min.js", 
+              "datetime-moment.js", 
+              "content.js"],
+      "css": [ "jquery.dataTables.min.css" ],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_action": {
+    "default_icon": "icon.png"
+  }
+}
